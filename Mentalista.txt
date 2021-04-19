@@ -1,0 +1,27 @@
+// alert / document.write / console.log 
+
+var numeroSecreto = 3
+var tentativas = 3
+
+while (tentativas > 0){
+  var chute = parseInt (prompt ("Digite um número inteiro entre 0 e 10. Vou te dar 3 chances."))
+
+if (numeroSecreto == chute) {
+  //console.log ("Isso mesmo!")
+  alert ("Isso mesmo!")
+  break
+}
+  else if (chute > numeroSecreto) {
+    //console.log ("O número secreto é menor que esse.")
+    alert ("O número secreto é menor que esse.")
+    tentativas = tentativas - 1
+  }
+  else if (chute < numeroSecreto) {
+    //console.log ("O número secreto é maior que esse.")
+    alert ("O número secreto é maior que esse.")
+    tentativas = tentativas - 1
+  }
+  //else{
+  //  console.log ("Errou! O número era " + numeroSecreto + ".")
+  // }
+}

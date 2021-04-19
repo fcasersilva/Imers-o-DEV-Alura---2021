@@ -1,0 +1,20 @@
+var filmes = ["Star Wars", "Toy Story", "Interstellar", "Esqueceram de Mim"]
+var tentativas = 3
+
+
+//for (var i = 3; i > 0; i-- ){ 
+//for (var i = 0; i <= 3; i++ ){  
+//for (var i = 2; i >= 2; i-- ){ 
+for (var i = 0; i < filmes.length; i++ ){
+  console.log (filmes[i])
+}
+ 
+// qdo utilizamos arrays o 1o elemento é sempre 0
+// nesse exemplo acima o 1o elemento seria Star Wars
+
+//console.log (filmes[0])
+//console.log (filmes[1])
+//console.log (filmes[2])
+
+//filmes.length mostra o tamanho do array
+// "i--" é equivalente a "i = i - 1" idem para i++, sendo q "i" é apenas uma definação qlqr para uma variavel, poderia ser qlqr coisa

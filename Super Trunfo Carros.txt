@@ -1,0 +1,123 @@
+
+var carro1 = {
+  nome: "Porshe 924 Turbo",
+  categorias: {
+    Velocidade: 230,
+    Potência: 130,
+    RPM: 5500,
+    CC: 1984,
+    cilindros: 4,
+  } 
+}
+
+var carro2 = {
+  nome: "Audi Quattro Turbo",
+  categorias: {
+    Velocidade: 222,
+    Potência: 147,
+    RPM: 5500,
+    CC: 2144,
+    cilindros: 5,
+  } 
+}
+var carro3 = {
+  nome: "Porshe 911 SC Turbo",
+  categorias: {
+    Velocidade: 261,
+    Potência: 221,
+    RPM: 5500,
+    CC: 3299,
+    cilindros: 6,
+  } 
+}
+var carro4 = {
+  nome: "Renault 5 Alphine Turbo",
+  categorias: {
+    Velocidade: 185,
+    Potência: 81,
+    RPM: 6000,
+    CC: 1397,
+    cilindros: 4,
+  } 
+}
+
+var carro5 = {
+  nome: "VW Fusca-Turbo",
+  categorias: {
+    Velocidade: 200,
+    Potência: 137,
+    RPM: 6100,
+    CC: 1980,
+    cilindros: 4,
+  } 
+}
+var carro6 = {
+  nome: "BMW M-1 Turbo Special",
+  categorias: {
+    Velocidade: 245,
+    Potência: 226,
+    RPM: 5600,
+    CC: 3500,
+    cilindros: 6,
+  } 
+}
+
+var carro7 = {
+  nome: "Ford Lincoln Special",
+  categorias: {
+    Velocidade: 285,
+    Potência: 248,
+    RPM: 6100,
+    CC: 1397,
+    cilindros: 4,
+  } 
+}
+
+var carroAdversario
+var carroJogador
+var carros = [carro1, carro2, carro3,  carro4,  carro5,  carro6,  carro7]
+
+function sortearCarta () {
+  var numeroCarroAdversario = parseInt(Math.random () * 3)
+  carroAdversario = carros [numeroCarroAdversario]
+  var numeroCarroJogador = parseInt(Math.random () * 3)
+  while (numeroCarroJogador == numeroCarroAdversario) {
+    numeroCarroJogador = parseInt(Math.random () * 3)
+    }
+  carroJogador = carros [numeroCarroJogador]
+  console.log (carroJogador)
+  
+  document.getElementById ("btnSortear").disabled = true
+  document.getElementById ("btnJogar").disabled = false
+  exibirOpcoes ()
+}
+
+function exibirOpcoes () {
+ var opcoes = document.getElementById ("opcoes")
+ var opcoesTexto = ""
+ for (var categoria in carroJogador.categorias){
+   opcoesTexto += "<input type='radio' name='categoria' value='" + categoria + "'>" + categoria
+  }
+ opcoes.innerHTML = opcoesTexto
+}
+
+function obtemCategoriaEscolhida () {
+  var radioCategoria = document.getElementsByName ("categoria")
+  for (var i = 0; i < radioCategoria.length; i++) {
+    if (radioCategoria [i].checked ){
+      return radioCategoria[i].value
+     }
+   }
+}
+
+function jogar () {
+  var categoriaSelecionada = obtemCategoriaEscolhida ()
+  if (carroJogador.categorias[categoriaSelecionada] > carroAdversario.categorias[categoriaSelecionada]) {
+    alert ("Você ganhou!")
+    } else if (carroJogador.categorias[categoriaSelecionada] < carroAdversario.categorias[categoriaSelecionada]) {
+      alert ("Você perdeu!")
+    } else {
+        alert ("Empatou!")
+    }
+ console.log (" O valor no carro adversário era: " + carroAdversario.categorias[categoriaSelecionada])
+}

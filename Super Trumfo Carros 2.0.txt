@@ -1,0 +1,161 @@
+
+var carro1 = {
+  nome: "Porshe 924 Turbo",
+  imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqsHvUHytuNHSdiOGbnF1Dg1FcrdUgrN40rw&usqp=CAU",
+  categorias: {
+    Velocidade: 230,
+    Potência: 130,
+    RPM: 5500,
+    CC: 1984,
+    cilindros: 4,
+  } 
+}
+
+var carro2 = {
+  nome: "Audi Quattro Turbo",
+  imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs_SePGPuir78836lHsumVbEvD480_XbJUjw&usqp=CAU",
+  categorias: {
+    Velocidade: 222,
+    Potência: 147,
+    RPM: 5500,
+    CC: 2144,
+    cilindros: 5,
+  } 
+}
+var carro3 = {
+  nome: "Porshe 911 SC Turbo",
+  imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYkB_YC1If27t51jA_FqrZE79NPA3zgifx6g&usqp=CAU",
+  categorias: {
+    Velocidade: 261,
+    Potência: 221,
+    RPM: 5500,
+    CC: 3299,
+    cilindros: 6,
+  } 
+}
+var carro4 = {
+  nome: "Renault 5 Alpine Turbo",
+  imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtWtd6iK3uXi4dQghTNInIZr4SAXIEK92_SA&usqp=CAU",
+  categorias: {
+    Velocidade: 185,
+    Potência: 81,
+    RPM: 6000,
+    CC: 1397,
+    cilindros: 4,
+  } 
+}
+
+var carro5 = {
+  nome: "VW Fusca-Turbo",
+  imagem: "https://i.ytimg.com/vi/YgOzaG4uo78/maxresdefault.jpg",
+  categorias: {
+    Velocidade: 200,
+    Potência: 137,
+    RPM: 6100,
+    CC: 1980,
+    cilindros: 4,
+  } 
+}
+var carro6 = {
+  nome: "BMW M-1 Turbo Special",
+  imagem: "https://64.media.tumblr.com/a2725931dd3db6dc2355ff55cac3f4eb/7b3f46edb8c099d1-47/s1280x1920/52748867d6805c791b76db1d1c303f2a698d0dbd.jpg",
+  categorias: {
+    Velocidade: 245,
+    Potência: 226,
+    RPM: 5600,
+    CC: 3500,
+    cilindros: 6,
+  } 
+}
+
+var carro7 = {
+  nome: "Ford Lincoln Special",
+  imagem: "https://i.pinimg.com/564x/4d/1b/c0/4d1bc05b721bfcc19b3099889f153e72.jpg",
+  categorias: {
+    Velocidade: 285,
+    Potência: 248,
+    RPM: 6100,
+    CC: 1397,
+    cilindros: 4,
+  } 
+}
+
+var carroAdversario
+var carroJogador
+var carros = [carro1, carro2, carro3,  carro4,  carro5,  carro6,  carro7]
+
+function sortearCarta () {
+  var numeroCarroAdversario = parseInt(Math.random () * 3)
+  carroAdversario = carros [numeroCarroAdversario]
+  var numeroCarroJogador = parseInt(Math.random () * 3)
+  while (numeroCarroJogador == numeroCarroAdversario) {
+    numeroCarroJogador = parseInt(Math.random () * 3)
+    }
+  carroJogador = carros [numeroCarroJogador]
+  console.log (carroJogador)
+  
+  document.getElementById ("btnSortear").disabled = true
+  document.getElementById ("btnJogar").disabled = false
+  exibeCarroJogador ()
+}
+
+function exibeCarroJogador () {
+  var divCarroJogador = document.getElementById("carro-jogador")
+  var moldura = '<img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/card-super-trunfo-transparent.png" style=" width: inherit; height: inherit; position: absolute;">'
+  
+  divCarroJogador.style.backgroundImage = `url(${carroJogador.imagem})` // CUIDADO! não é aspas simples é CRASE 
+  var nome = `<p class = "carta-subtitle">${carroJogador.nome}</p>`
+  var opcoesTexto = ""
+  
+  for (var categoria in carroJogador.categorias) {
+        opcoesTexto += "<input type ='radio' name ='categoria' value='" + categoria + "'>" + categoria + " " + carroJogador.categorias[categoria] + "<br>"
+    }
+  
+  var html = "<div id = 'opcoes' class = 'carta-status'>"
+  
+  divCarroJogador.innerHTML = moldura + nome + html + opcoesTexto + '</div>'
+ 
+}
+
+function obtemCategoriaSelecionada() {
+    var radioCategoria = document.getElementsByName('categoria')
+    for (var i = 0; i < radioCategoria.length; i++) {
+        if (radioCategoria[i].checked) {
+            return radioCategoria[i].value
+        }
+    }
+}
+
+function jogar() {
+    var divResultado = document.getElementById ("resultado")
+    var categoriaSelecionada = obtemCategoriaSelecionada()
+
+    if (carroJogador.categorias[categoriaSelecionada] > cartaAdversario.categorias[categoriaSelecionada]) {
+        var htmlResultado = '<p class = "resultado-final"> Você Venceu! </p>'
+    } else if (carroJogador.atributos[atributoSelecionado] < carroAdversario.categorias[categoriaSelecionada]) {
+        var htmlResultado = '<p class = "resultado-final"> Você Perdeu! </p>'
+    } else {
+        var htmlResultado = '<p class = "resultado-final"> Empatou! </p>'
+    }
+  
+  divResultado.innerHTML = htmlResultado
+  exibeCarroAdversario ()
+}
+
+function exibeCarroAdversario () {
+  var divCarroAdversario = document.getElementById("carro-adversario")
+  var moldura = '<img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/card-super-trunfo-transparent.png" style=" width: inherit; height: inherit; position: absolute;">'
+  
+  divCarroAdversario.style.backgroundImage = `url(${carroAdversario.imagem})` // CUIDADO! não é aspas simples é CRASE 
+  var nome = `<p class = "carta-subtitle">${carroAdversario.nome}</p>`
+  var opcoesTexto = ""
+  
+  for (var categoria in cartaMaquina.categorias) {
+        opcoesTexto += "<p type ='text' name ='categoria' value='" + categoria + "'>" + categoria + " " + carroAdversario.categorias[categoria] + "<br>"
+    }
+
+  var html = "<div id = 'opcoes' class = 'carta-status'>"
+  
+  divCarroAdversario.innerHTML = moldura + nome + html + opcoesTexto + '</div>'
+ 
+}

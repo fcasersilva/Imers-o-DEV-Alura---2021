@@ -1,0 +1,11 @@
+//sugestão de exercicio
+
+var tempFahEntrada = prompt ("Qual o valor da temperatura em Fahrenheit?")
+
+var tempFahSaida = parseFloat (tempFahEntrada)
+var tempFahSaidaAprox = tempFahSaida.toFixed(1)
+
+var tempCelcius = (tempFahSaida - 32) * (5/9)
+var tempCelciusAprox = tempCelcius.toFixed(1)
+
+alert (tempFahSaida + "ºF são aproximadamente " + tempCelciusAprox + "ºC")

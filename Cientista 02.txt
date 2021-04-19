@@ -1,0 +1,16 @@
+
+alert ("Quem é esse cientista? Nascido em uma família de judeus alemães, mudou-se para a Suíça ainda jovem e iniciou seus estudos na
+Escola Politécnica de Zurique. Foi um físico teórico alemão que desenvolveu a teoria da relatividade geral,
+um dos pilares da física moderna ao lado da mecânica quântica. Conhecido por sua fórmula de equivalência massa-energia, E = mc²")
+
+var opcoes = parseInt (prompt ("1 - Einstein;  2 - Newton;  3 - Maxwell;"))
+
+if (opcoes == 1){
+    alert ("Certo!")
+  } else if (opcoes == 2){
+    alert ("Não foi dessa vez. Era Albert Einstein")
+  } else if (opcoes == 3){
+    alert ("Não foi dessa vez. Era Albert Einstein")
+  } else {
+   alert("Opção Inválida!")
+  }

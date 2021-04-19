@@ -1,0 +1,11 @@
+
+// esse foi feito em aula
+
+var valorProdutoDolar = prompt ("Qual o valor do produto em dolár?")
+
+var valorDolar = parseFloat (valorProdutoDolar)
+
+var valorEmReal = valorDolar * 5.50
+var valorEmRealFixado = valorEmReal.toFixed(2)
+
+alert ("R$ " + valorEmRealFixado)

@@ -1,0 +1,16 @@
+
+alert ("Quem é esse cientista?  Sua pesquisa sobre a natureza do espectro eletromagnético foi de fundamental importância,
+posteriormente, para o emprego dos raios X e da ressonância magnética na Medicina.
+É mais conhecido por ter dado forma final à teoria moderna do eletromagnetismo, que une a eletricidade, o magnetismo e a óptica.")
+
+var opcoes = parseInt (prompt ("1 - Einstein;  2 - Newton;  3 - Maxwell;"))
+
+if (opcoes == 3){
+    alert ("Certo!")
+  } else if (opcoes == 2){
+    alert ("Não foi dessa vez. Era James Maxwell")
+  } else if (opcoes == 1){
+    alert ("Não foi dessa vez. Era James Maxwell")
+  } else {
+   alert("Opção Inválida!")
+  }

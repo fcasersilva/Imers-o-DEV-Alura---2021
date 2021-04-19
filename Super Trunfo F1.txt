@@ -1,0 +1,240 @@
+var carta01 = {
+    nome: "Mclaren-Tag/Porsche turbo",
+    imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY6kXnvlBk5x451HXor2Y9Vj0xpdWJGilOPA&usqp=CAU",
+    atributos: {
+        Velicidade: 335,
+        HP: 800,
+        KW: 589,
+        RPM: 11200
+    }
+}
+
+var carta02 = {
+    nome: "RAM-Hart 03",
+    imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaJuDXLOa_wmql-RvUrONJrr6nmsqErEG6YWh727jVy1MMSW-O8L4R0GGUZuZc6sOB2mw&usqp=CAU",
+    atributos: {
+        Velicidade: 320,
+        HP: 700,
+        KW: 515,
+        RPM: 10500
+    }
+}
+
+var carta03 = {
+    nome: "Tyrrell Crosworth 112",
+    imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDiYsXzSxRFYLrdibOpms_jY716dueuCc2UX-M8ypQVE8MQhNZ2bg8VuJCob_Nvppge_Y&usqp=CAU",
+    atributos: {
+        Velicidade: 315,
+        HP: 530,
+        KW: 390,
+        RPM: 11600
+    }
+}
+
+var carta04 = {
+    nome: "Spirit Hart 101-B",
+    imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2xfR3hw13yJE7V7dmi9YwrS_qXIlBw__9dva85_RvOX6fawCOepeYHNkExQbzURvrVtE&usqp=CAU",
+    atributos: {
+        Velicidade: 315,
+        HP: 650,
+        KW: 478,
+        RPM: 10500
+    }
+}
+
+var carta05 = {
+    nome: "Zackspeed 841",
+    imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZs9LBqWqJTccrr9Jnk_3AMY5UZQIGaU3sv0kIlujtqoJsBecUb4jr0Vfve9PEmzUqXt0&usqp=CAU",
+    atributos: {
+        Velicidade: 320,
+        HP: 700,
+        KW: 515,
+        RPM: 11000
+    }
+}
+
+var carta06 = {
+    nome: "Alfa Romeo 184T",
+    imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTAVxJGYx5Y9ClWfKok2ZWbpIqEBKvOEDh2A&usqp=CAU",
+    atributos: {
+        Velicidade: 320,
+        HP: 700,
+        KW: 515,
+        RPM: 11000
+    }
+}
+
+var carta07 = {
+    nome: "RAM-Hart 02",
+    imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBrCGffuN2WgDBhShy7z-pC_jGmuq_15TZVSRHFDOVL1EMvBWslr4Uz7ED7d-J4Y61ux8&usqp=CAU",
+    atributos: {
+        Velicidade: 315,
+        HP: 650,
+        KW: 478,
+        RPM: 10500
+    }
+}
+
+var carta08 = {
+    nome: "Brabham-BMW BT53",
+    imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkMMR61ThacaUjBsoKZmH5Xu7MYQcKnrh1RQ&usqp=CAU",
+    atributos: { 
+        Velicidade: 330,
+        HP: 660,
+        KW: 471,
+        RPM: 10600
+    }
+}
+
+var carta09 = {
+    nome: "Williams-Honda FW09B",
+    imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLFZTWF5SRwS1mj20W8z8JCEqfZvR_epp5rHAkLnyltA9MeWsYHi_FUB3CKAmO_Po5hrI&usqp=CAU",
+    atributos: {
+        Velicidade: 330,
+        HP: 660,
+        KW: 486,
+        RPM: 11500
+    }
+}
+
+var carta10 = {
+    nome: "Lotus-Renault 95T",
+    imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCDqidmT1W9skLCY-XSUARt5mstp7YovXeiw&usqp=CAU",
+    atributos: {
+        Velicidade: 340,
+        HP: 640,
+        KW: 486,
+        RPM: 11500
+    }
+}
+
+var cartaMaquina
+var cartaJogador
+var cartas = [carta01, carta02, carta03, carta04, carta05, carta06, carta07, carta08, carta09, carta10]
+//            0           1        2        3         4        5        6        7       8        9
+
+var pontosJogador = 0
+var pontosMaquina = 0
+
+atualizaPlacar ()
+atualizaQuantidadeCartas ()
+
+function atualizaQuantidadeCartas (){
+  var divQuantidadeCartas = document.getElementById("quantidade-cartas") //ver linha 21 HTML
+  var html = "Quantodade de cartas do jogo: " + cartas.length
+  divQuantidadeCartas.innerHTML = html
+}
+
+function atualizaPlacar (){
+  var divPlacar = document.getElementById("placar")
+  var html = "Jogador " + pontosJogador + "/ " + pontosMaquina + " Máquina" 
+  divPlacar.innerHTML = html
+} 
+
+function sortearCarta() {
+    var numeroCartaMaquina = parseInt(Math.random() * cartas.length)
+    cartaMaquina = cartas[numeroCartaMaquina]
+    cartas.splice (numeroCartaMaquina, 1) // splice é uma função interna do JS
+  
+    var numeroCartaJogador = parseInt(Math.random() * cartas.length)
+  
+    cartaJogador = cartas[numeroCartaJogador]
+    cartas.splice (numeroCartaJogador, 1)
+    console.log(cartaJogador)
+
+    document.getElementById('btnSortear').disabled = true
+    document.getElementById('btnJogar').disabled = false
+
+    exibeCartaJogador()
+}
+
+function exibeCartaJogador() {
+    var divCartaJogador = document.getElementById("carta-jogador")
+    var moldura = '<img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/card-super-trunfo-transparent.png" style=" width: inherit; height: inherit; position: absolute;">';
+    divCartaJogador.style.backgroundImage = `url(${cartaJogador.imagem})`
+    var nome = `<p class="carta-subtitle">${cartaJogador.nome}</p>`
+    var opcoesTexto = ""
+
+    for (var atributo in cartaJogador.atributos) {
+        opcoesTexto += "<input type='radio' name='atributo' value='" + atributo + "'>" + atributo + " " + cartaJogador.atributos[atributo] + "<br>"
+    }
+
+    var html = "<div id='opcoes' class='carta-status'>"
+
+    divCartaJogador.innerHTML = moldura + nome + html + opcoesTexto + '</div>'
+}
+
+function obtemAtributoSelecionado() {
+    var radioAtributo = document.getElementsByName('atributo')
+    for (var i = 0; i < radioAtributo.length; i++) {
+        if (radioAtributo[i].checked) {
+            return radioAtributo[i].value
+        }
+    }
+}
+
+function jogar() {
+    var divResultado = document.getElementById("resultado")
+    var atributoSelecionado = obtemAtributoSelecionado()
+
+    if (cartaJogador.atributos[atributoSelecionado] > cartaMaquina.atributos[atributoSelecionado]) {
+        htmlResultado = '<p class="resultado-final">Venceu</p>'
+        pontosJogador++
+    } else if (cartaJogador.atributos[atributoSelecionado] < cartaMaquina.atributos[atributoSelecionado]) {
+        htmlResultado = '<p class="resultado-final">Perdeu</p>'
+        pontosMaquina++
+    } else {
+        htmlResultado = '<p class="resultado-final">Empatou</p>'
+    }
+  
+   if (cartas.length == 0) {
+     alert ("Fim de Jogo")
+     if (pontosJogador > pontosMaquina){
+        htmlResultado = '<p class="resultado-final">Venceu</p>'
+     } else if (cartaJogador.atributos[atributoSelecionado] < cartaMaquina.atributos[atributoSelecionado]) {
+        htmlResultado = '<p class="resultado-final">Perdeu</p>'
+     } else {
+        htmlResultado = '<p class="resultado-final">Empatou</p>'
+     } 
+   } else {
+        document.getElementById ("btnProximaRodada").disabled = false
+   }
+
+    divResultado.innerHTML = htmlResultado
+  
+    document.getElementById ('btnJogar').disabled = true //ver linha 26 HTML
+    document.getElementById ('btnProximaRodada').disabled = false //ver linha 30 HTML
+  
+    atualizaPlacar ()
+    exibeCartaMaquina()
+    atualizaQuantidadeCartas ()
+}
+
+function exibeCartaMaquina() {
+    var divCartaMaquina = document.getElementById("carta-maquina")
+    var moldura = '<img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/card-super-trunfo-transparent.png" style=" width: inherit; height: inherit; position: absolute;">';
+    divCartaMaquina.style.backgroundImage = `url(${cartaMaquina.imagem})`
+    var nome = `<p class="carta-subtitle">${cartaMaquina.nome}</p>`
+    var opcoesTexto = ""
+
+    for (var atributo in cartaMaquina.atributos) {
+        console.log(atributo)
+        opcoesTexto += "<p type='text' name='atributo' value='" + atributo + "'>" + atributo + " " + cartaMaquina.atributos[atributo] + "<br>"
+    }
+
+    var html = "<div id='opcoes' class='carta-status --spacing'>"
+
+    divCartaMaquina.innerHTML = moldura + nome + html + opcoesTexto + '</div>'
+}
+
+function proximaRodada (){ //ver linha 30 HTML
+  var divCartas = document.getElementById ("cartas") // ver linha 22 HTML
+ 
+  divCartas.innerHTML = `<div id = "carta-jogador" class = "carta"></div> <div id = "carta-maquina" class = "carta"></div>`
+  
+  document.getElementById ("btnSortear").disabled = false
+  document.getElementById ("btnJogar").disabled = true
+  
+  var divResultado = document.getElementById ("resultado") // linha 29 HTML
+  divResultado.innerHTML = ""
+}

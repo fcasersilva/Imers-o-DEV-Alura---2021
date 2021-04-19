@@ -1,0 +1,31 @@
+
+var paulo = {
+  nome: "Paulo",
+  vitorias: 2,
+  empates: 5,
+  derrotas: 1,
+  pontos: 0
+}
+
+var rafa = {
+  nome: "Rafa",
+  vitorias: 3,
+  empates: 5,
+  derrotas: 2,
+  pontos: 0
+}
+
+//console.log (paulo)
+    //console.log (paulo.vitorias) para exibir apenas uma das caract (tbm chamadas de atributos ou         propriedades) do objeto
+//console.log (rafa)
+
+//console.log (rafa.pontos)
+paulo.pontos = calculaPontos (paulo)
+rafa.pontos = calculaPontos (rafa)
+//console.log (rafa.pontos)
+
+function calculaPontos (jogador) {
+ //console.log (jogador.vitorias)
+  var pontos = (jogador.vitorias * 3) + jogador.empates
+  return pontos
+  }

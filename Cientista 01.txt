@@ -1,0 +1,15 @@
+
+alert ("Quem é esse cientista? Foi um matemático, físico, astrônomo, teólogo e autor inglês. Nasceu em Londres no dia 25-Dez-1642.
+Seu livro Princípios Matemáticos da Filosofia Natural, publicado pela primeira vez em 1687, lançou as bases da mecânica clássica")
+
+var opcoes = parseInt (prompt ("1 - Einstein;  2 - Newton;  3 - Maxwell;"))
+
+if (opcoes == 2){
+    alert ("Certo!")
+  } else if (opcoes == 1){
+    alert ("Não foi dessa vez. Era Isaac Newton")
+  } else if (opcoes == 3){
+    alert ("Não foi dessa vez. Era Isaac Newton")
+  } else {
+   alert("Opção Inválida!")
+  }

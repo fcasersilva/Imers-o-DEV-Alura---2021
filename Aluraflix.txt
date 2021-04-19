@@ -1,0 +1,16 @@
+//var filme1 = "Star Wars"
+//var filme2 = "Toy Story"
+//var filme3 = "Interestellar"
+
+//var filmes = ["Star Wars", "Toy Sory", "Interestellar"]
+var filmes = []
+
+filmes.push ("Star Wars")
+filmes.push ("Toy Story")
+filmes.push ("Interestellar")
+
+console.log (filmes)
+
+//console.log (filme1)
+//console.log (filme2)
+//console.log (filme3)

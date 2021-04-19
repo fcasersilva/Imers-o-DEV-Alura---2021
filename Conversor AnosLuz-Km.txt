@@ -1,0 +1,10 @@
+//sugestão de exercicio
+
+var distAnosLuzEntrada = prompt ("Qual o valor da distâcia em Anos-Luz?")
+
+var distAnosLuzSaida = parseFloat (distAnosLuzEntrada)
+
+var distAnosLuzSaida = distAnosLuzEntrada * 9500000000000
+var distAnosLuzAprox = distAnosLuzSaida.toFixed(3)
+
+alert (distAnosLuzEntrada + "em km são aproximadamente " + distAnosLuzAprox + " km")
